@@ -1,5 +1,7 @@
 class LinkedList:
 
+    ERROR_INDEX_OUT_OF_BOUNDS = "List index out of range."
+
     class Node:
 
         def __init__(self, data):
@@ -40,7 +42,7 @@ class LinkedList:
 
     def insert(self, index, data):
         if index < 0 or index > self.size:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
         elif index == self.size:
             self.insert_tail(data)
         elif index == 0:
@@ -63,7 +65,7 @@ class LinkedList:
 
     def remove_head(self):
         if self.head is None:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
         old_head = self.head
         nxt = self.head.nxt
         if nxt is not None:
@@ -78,7 +80,7 @@ class LinkedList:
 
     def remove_tail(self):
         if self.tail is None:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
         old_tail = self.tail
         prv = old_tail.prv
         if prv is not None:
@@ -93,7 +95,7 @@ class LinkedList:
 
     def remove(self, index):
         if index < 0 or index >= self.size:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
         elif index == self.size - 1:
             return self.remove_tail()
         elif index == 0:
@@ -117,19 +119,19 @@ class LinkedList:
 
     def get_head(self):
         if self.head is None:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
 
         return self.head.data
 
     def get_tail(self):
         if self.tail is None:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
 
         return self.tail.data
 
     def get(self, index):
         if index < 0 or index >= self.size:
-            raise IndexError('List index out of range.')
+            raise IndexError(self.ERROR_INDEX_OUT_OF_BOUNDS)
         curr = self.head
         for i in range(index):
             curr = curr.nxt
