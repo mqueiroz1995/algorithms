@@ -115,6 +115,18 @@ class LinkedList:
         self.tail = None
         self.size = 0
 
+    def get_head(self):
+        if self.head is None:
+            raise IndexError('List index out of range.')
+
+        return self.head.data
+
+    def get_tail(self):
+        if self.tail is None:
+            raise IndexError('List index out of range.')
+
+        return self.tail.data
+
     def get(self, index):
         if index < 0 or index >= self.size:
             raise IndexError('List index out of range.')

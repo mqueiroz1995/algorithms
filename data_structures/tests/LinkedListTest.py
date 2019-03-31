@@ -27,10 +27,7 @@ class LinkedListTest(unittest.TestCase):
                 else:
                     self.assertIsNone(curr.prv)
 
-                if nxt is not None:
-                    self.assertEqual(nxt.prv, curr)
-                else:
-                    self.assertIsNone(curr.nxt)
+                self.assertEqual(nxt.prv, curr)
 
                 prv = curr
                 curr = nxt
@@ -170,6 +167,24 @@ class LinkedListTest(unittest.TestCase):
         self.assertEqual(len(lst), 0)
         self.__validate_linked_list(lst)
 
+    def test_get_head(self):
+        lst = self.__build_linked_list([0, 1, 2, 3, 4])
+        self.assertEqual(lst.get_head(), 0)
+
+    def test_get_head_emptyList_raisesIndexError(self):
+        lst = self.__build_linked_list()
+        with self.assertRaises(IndexError):
+            lst.get_head()
+
+    def test_get_tail(self):
+        lst = self.__build_linked_list([0, 1, 2, 3, 4])
+        self.assertEqual(lst.get_tail(), 4)
+
+    def test_get_tail_emptyList_raisesIndexError(self):
+        lst = self.__build_linked_list()
+        with self.assertRaises(IndexError):
+            lst.get_tail()
+
     def test_get_emptyList_raisesIndexError(self):
         lst = self.__build_linked_list()
         with self.assertRaises(IndexError):
@@ -194,6 +209,3 @@ class LinkedListTest(unittest.TestCase):
         lst = self.__build_linked_list()
         self.assertFalse(lst.contains(0))
         self.__validate_linked_list(lst)
-
-if __name__ == '__main__':
-    unittest.main()
