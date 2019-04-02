@@ -1,4 +1,4 @@
-from ..src.LinkedList import LinkedList
+from src.LinkedList import LinkedList
 
 
 class Stack:
