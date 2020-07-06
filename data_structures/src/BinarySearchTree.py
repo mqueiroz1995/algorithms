@@ -19,7 +19,7 @@ class BinarySearchTree():
 
     def remove(self, data):
         if data < self.data:
-            if self.left:
+            if self.left is not None:
                 self.left = self.left.remove(data)
         elif data > self.data:
             if self.right:
@@ -41,7 +41,7 @@ class BinarySearchTree():
     def lookup(self, data):
         if data == self.data:
             return True
-        elif data < self.data:
+        elif data < self.data: # pragma: [ROR]
             if self.left is not None:
                 return self.left.lookup(data)
             else:
