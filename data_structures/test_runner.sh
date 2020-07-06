@@ -3,9 +3,8 @@ rm -R .test_runner
 mkdir .test_runner
 
 # tests + coverage
-coverage run -m unittest tests
-coverage report -m
-coverage html -d .test_runner/coverage
+coverage run -m unittest discover tests -p "*Test.py"
+coverage report
 
 # mutation testing
 mut.py \
